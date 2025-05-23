@@ -23,11 +23,11 @@ router.get('/profile', profile);
  */
 
 
-router.post('/upload', upload.single('file'), fileUploadController);
+router.put('/upload', upload.single('file'), fileUploadController);
 /**
  * @swagger
  * /user/upload:
- *   post:
+ *   put:
  *     summary: Upload a file to S3
  *     tags:
  *       - User

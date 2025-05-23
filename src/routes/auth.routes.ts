@@ -25,7 +25,7 @@ router.post('/sign-up', validate(signupSchema), signup);
  *             properties:
  *               email:
  *                 type: string
- *                 example: test@example.com
+ *                 example: abhi@citiustech.com
  *               password:
  *                 type: string
  *                 example: Password123
@@ -56,7 +56,7 @@ router.post('/login', validate(loginSchema), login);
  *             properties:
  *               email:
  *                 type: string
- *                 example: abhi@test.com
+ *                 example: abhi@citiustech.com
  *               password:
  *                 type: string
  *                 example: 123456 

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { profileService } from '../services/user.service';
+import { profileService, updateProfileImage } from '../services/user.service';
 
 import s3 from '../utils/s3handler';
 import { v4 as uuidv4 } from 'uuid';
@@ -31,7 +31,11 @@ export const fileUploadController = async (req: Request, res: Response) => {
 
     try {
         const result = await s3.upload(uploadParams).promise();
-        res.status(200).json({ url: result.Location });
+
+        var respData: any = await updateProfileImage(req.userId, result.Location);
+
+        respData.password = undefined;
+        res.status(200).json({ data: respData });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Upload failed' });
