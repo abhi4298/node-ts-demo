@@ -16,6 +16,18 @@ dotenv.config();
 connectDatabase();
 
 
+// ************* CORS ********************
+
+import cors from 'cors';
+
+app.use(cors({
+    origin: 'http://localhost:4200',
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+
 // ************* Swagger ******************
 
 import swaggerUi from 'swagger-ui-express';
